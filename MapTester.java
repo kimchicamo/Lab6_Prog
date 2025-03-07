@@ -17,6 +17,11 @@ public class MapTester
     public MapTester()
     {   phoneBook =  new HashMap<>();
     }
+    public void fillphoneBook(){
+        phoneBook.put("kimia","1111");
+        phoneBook.put("fatima","2222");
+        phoneBook.put("ilsa", "3333");
+    }
     public void enterNumber(String name,String number){
         phoneBook.put(name, number);
     }
