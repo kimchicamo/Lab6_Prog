@@ -56,8 +56,14 @@ public class RandomTester
         return responses.get(rand_gen.nextInt(responses.size()));
         
     }
-    //19
-    public int maxRandomNumber(int max){
-        return rand_gen.nextInt(max) + 1;
+    //19,20
+    public int getRandomNumberInRange(int min,int max){
+        return rand_gen.nextInt((max-min) + 1) + min;
     }
+    //20
+    public int getRandomNumber(int max){
+        return getRandomNumberInRange(1, max);
+    }
+    
+    
 }
