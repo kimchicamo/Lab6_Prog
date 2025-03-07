@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.*;
 
 /**
  * Write a description of class RandomTester here.
@@ -10,11 +11,12 @@ public class RandomTester
 {
     // instance variables - replace the example below with your own
     private Random rand_gen;
+    private ArrayList<String> responses; 
 
     /**
      * Constructor for objects of class RandomTester
      */
-    public RandomTester()
+     public RandomTester()
     {
         rand_gen = new Random();
         
@@ -43,10 +45,16 @@ public class RandomTester
     public int randomDice(){
         return rand_gen.nextInt(6) + 1;
     }
-    
+    //17,18
     public String getResponse() {
-        String[] responses = {"yes", "no","maybe"};
-        return responses[rand_gen.nextInt(responses.length)];
+        responses = new ArrayList<>();
+        responses.add("yes");
+        responses.add("no");
+        responses.add("maybe");
+        responses.add("ask again later ");
+        
+        return responses.get(rand_gen.nextInt(responses.size()));
         
     }
+    
 }
