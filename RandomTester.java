@@ -16,8 +16,8 @@ public class RandomTester
      */
     public RandomTester()
     {
-       Random rand_gen = new Random();
-       
+        rand_gen = new Random();
+        
     }
 
     /**
@@ -30,5 +30,23 @@ public class RandomTester
     {
         // put your code here
         System.out.println("new integer :" + rand_gen.nextInt(1000));
+    }
+    //14
+    public void multiRandom(int howMany){
+        int count = 0;
+        while(count < howMany){
+            printOneRandom();
+            count++;
+        }
+    }
+    //16
+    public int randomDice(){
+        return rand_gen.nextInt(6) + 1;
+    }
+    
+    public String getResponse() {
+        String[] responses = {"yes", "no","maybe"};
+        return responses[rand_gen.nextInt(responses.length)];
+        
     }
 }
