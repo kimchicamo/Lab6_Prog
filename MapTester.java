@@ -27,6 +27,8 @@ public class MapTester
     public String lookupNumber(String name){
     return phoneBook.get(name);
     }
-
+    //30
+    //if (map.containKey"key")){...}
+    
     
 }
