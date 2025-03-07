@@ -56,5 +56,8 @@ public class RandomTester
         return responses.get(rand_gen.nextInt(responses.size()));
         
     }
-    
+    //19
+    public int maxRandomNumber(int max){
+        return rand_gen.nextInt(max) + 1;
+    }
 }
