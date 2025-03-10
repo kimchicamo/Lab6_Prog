@@ -33,7 +33,7 @@ public class SupportSystem
      * message and enter into a dialog with the user, until the user
      * ends the dialog.
      */
-    
+    //42
     public void start() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Tech Support. Type your problem, or 'bye' to exit.");

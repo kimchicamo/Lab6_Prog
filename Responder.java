@@ -29,10 +29,13 @@ public class Responder{
     }
         
 
+    //43
     private void filleResponsesMap(){
       responsesMap.put("slow", "give it more  time");
       responsesMap.put("crash", "restart");
       responsesMap.put("frozen", "no way other than reboot");
+      responsesMap.put("password", "Try resetting your password.");
+      responsesMap.put("internet", "Check your router connection.");
     }
     private void filleResponses(){
        responses.add("have you tried turning it off and on ?");
@@ -48,10 +51,18 @@ public class Responder{
         }
         return pickDefaultResponse();
     }
+    private String lastResponse = "";
     private String pickDefaultResponse() {
-        return responses.get(rand_gen.nextInt(responses.size()));
+        String newResponse;
+        do {
+        newResponse = responses.get(rand_gen.nextInt(responses.size()));
+        } while (newResponse.equals(lastResponse));
+
+        lastResponse = newResponse;
+        return newResponse;
     }
 }
+
 
 
     
