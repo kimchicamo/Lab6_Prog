@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
 /**
  * This class implements a technical support system. It is the top level class 
  * in this project. The support system communicates via text input/output 
@@ -30,31 +33,33 @@ public class SupportSystem
      * message and enter into a dialog with the user, until the user
      * ends the dialog.
      */
-    public void start()
-    {
-        boolean finished = false;
+    
+    public void start() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to Tech Support. Type your problem, or 'bye' to exit.");
 
-        printWelcome();
-
-        while(!finished) {
-            String input = reader.getInput();
-            input = input.trim();
-            input = input.toLowerCase();
-
-            
-            if(input.equals("bye")) {
-                finished = true;
+        while (true) {
+            System.out.print("> ");
+            String inputLine = scanner.nextLine().trim().toLowerCase();
+            if (inputLine.equals("bye")) {
+                System.out.println("Goodbye!");
+                break;
             }
-            else {
-                String response = responder.generateResponse(input);
-                System.out.println(response);
+
+            // Convert input into a set of words
+            HashSet<String> words = new HashSet<>();
+            for (String word : inputLine.split("\\s+")) {
+                words.add(word);
             }
-            
-            
+
+            // Get response
+            String response = responder.generateResponse(words);
+            System.out.println(response);
         }
 
-        printGoodbye();
+        scanner.close();
     }
+
 
     /**
      * Print a welcome message to the screen.
